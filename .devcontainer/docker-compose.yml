@@ -1,0 +1,10 @@
+services:
+  playground:
+    tty: true
+    restart: always
+    working_dir: /workspace
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace
