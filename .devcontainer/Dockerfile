@@ -4,6 +4,8 @@ ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
+WORKDIR /workspace
+
 RUN groupmod -g 1234 node \
     && usermod -u 1234 -g 1234 node \
     && groupadd --gid $USER_GID $USERNAME \
@@ -12,6 +14,8 @@ RUN groupmod -g 1234 node \
     && apt-get install -y sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
     && chmod 0440 /etc/sudoers.d/$USERNAME \
+    && mkdir node_modules \
+    && chown vscode:vscode node_modules \
     && apt-get clean
 
 RUN apt-get update \
@@ -32,5 +36,3 @@ ENV LANG="ja_JP.UTF-8" \
     LANGUAGE="ja_JP:ja" \
     LC_ALL="ja_JP.UTF-8" \
     TZ=Asia/Tokyo
-
-WORKDIR /workspace

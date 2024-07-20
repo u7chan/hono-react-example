@@ -8,3 +8,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ..:/workspace
+      - playground-volume:/workspace/node_modules
+
+volumes:
+  playground-volume:
