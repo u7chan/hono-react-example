@@ -1,12 +1,12 @@
 {
-  "name": "hono-react-example",
-  "module": "index.ts",
-  "type": "module",
-  "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
-    "@types/bun": "latest"
+  "name": "workspace",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts"
   },
-  "peerDependencies": {
-    "typescript": "^5.5.3"
+  "dependencies": {
+    "hono": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
   }
 }
