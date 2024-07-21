@@ -4,6 +4,7 @@
     "dockerComposeFile": "docker-compose.yml",
     "workspaceFolder": "/workspace",
     "postCreateCommand": "bun i",
+    "updateRemoteUserUID": false,
     "remoteUser": "vscode",
     "customizations": {
         "vscode": {
