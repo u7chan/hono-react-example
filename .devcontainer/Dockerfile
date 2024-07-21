@@ -15,7 +15,7 @@ RUN groupmod -g 1234 node \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
     && chmod 0440 /etc/sudoers.d/$USERNAME \
     && mkdir node_modules \
-    && chown vscode:vscode node_modules \
+    && chown $USERNAME:$USERNAME node_modules \
     && apt-get clean
 
 RUN apt-get update \
