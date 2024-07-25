@@ -3,10 +3,6 @@ import { renderToString } from 'react-dom/server'
 
 const app = new Hono()
 
-const TestFC = ({ title }: { title: string }) => {
-  return <h1>{title}</h1>
-}
-
 app.get('/', (c) => {
   return c.html(
     renderToString(
@@ -14,9 +10,14 @@ app.get('/', (c) => {
         <head>
           <meta charSet='utf-8' />
           <meta content='width=device-width, initial-scale=1' name='viewport' />
+          {process.env.NODE_ENV === 'production' || import.meta.env.PROD ? (
+            <script type='module' src='/static/client.js' />
+          ) : (
+            <script type='module' src='/src/client.tsx' />
+          )}
         </head>
         <body>
-          <TestFC title='Hello Hono with React' />
+          <div id='root' />
         </body>
       </html>,
     ),
