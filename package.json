@@ -2,10 +2,10 @@
   "name": "hono-react-example",
   "scripts": {
     "dev": "bun run --hot src/index.tsx",
-     "lint": "bunx @biomejs/biome check --write src"
+    "lint": "bunx @biomejs/biome check --write src"
   },
   "dependencies": {
-    "hono": "^4.5.0",
+    "hono": "^4.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
