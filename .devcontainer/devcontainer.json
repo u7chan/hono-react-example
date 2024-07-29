@@ -19,7 +19,8 @@
                 "biomejs.biome",
                 "davidanson.vscode-markdownlint",
                 "eamodio.gitlens",
-                "humao.rest-client"
+                "humao.rest-client",
+                "formulahendry.auto-rename-tag"
             ]
         }
     }
