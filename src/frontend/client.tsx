@@ -11,7 +11,15 @@ const App = () => {
       },
       {} as { [k: string]: FormDataEntryValue },
     )
-    console.log('#', formValues)
+    fetch('/api/signin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formValues),
+    }).then((res: Response) => {
+      alert(res.statusText)
+    })
   }
   return (
     <>

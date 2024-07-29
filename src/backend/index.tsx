@@ -3,6 +3,19 @@ import { renderToString } from 'react-dom/server'
 
 const app = new Hono()
 
+function signIn(username: string, password: string): boolean {
+  // dummy
+  return username === 'dummy' && password === 'test'
+}
+
+app.post('/api/signin', async (c) => {
+  const { username, password } = await c.req.json()
+  if (!signIn(username, password)) {
+    return new Response('Unauthorized', { status: 401 })
+  }
+  return new Response('OK', { status: 200 })
+})
+
 app.notFound((c) => {
   return c.html(renderToString(<div>404 Not found</div>))
 })
