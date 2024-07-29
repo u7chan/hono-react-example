@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
-    "start": "NODE_ENV=production bun run src/serve.ts",
+    "start": "NODE_ENV=production bun run src/backend/server.ts",
     "lint": "bunx @biomejs/biome check --write src"
   },
   "dependencies": {

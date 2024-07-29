@@ -3,6 +3,10 @@ import { renderToString } from 'react-dom/server'
 
 const app = new Hono()
 
+app.notFound((c) => {
+  return c.html(renderToString(<div>404 Not found</div>))
+})
+
 app.get('/', (c) => {
   return c.html(
     renderToString(
@@ -13,7 +17,7 @@ app.get('/', (c) => {
           {process.env.NODE_ENV === 'production' || import.meta.env.PROD ? (
             <script type='module' src='/static/client.js' />
           ) : (
-            <script type='module' src='/src/client.tsx' />
+            <script type='module' src='/src/frontend/client.tsx' />
           )}
         </head>
         <body>

@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
       },
       plugins: [
         devServer({
-          entry: 'src/index.tsx',
+          entry: 'src/backend/index.tsx',
         }),
       ],
       optimizeDeps: {
@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => {
   return {
     build: {
       rollupOptions: {
-        input: './src/client.tsx',
+        input: './src/frontend/client.tsx',
         output: {
           entryFileNames: 'static/client.js',
         },
